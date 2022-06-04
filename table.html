@@ -1,0 +1,57 @@
+<head>
+  <link rel="stylesheet" href="table.css">
+</head>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Start typing your reg. mobile number...">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:30%;">Reg. Mo. No.</th>
+    <th style="width:40%;">Name</th>
+    <th style="width:30%;">Status</th>
+  </tr>
+  <tr>
+    <td>7460808009</td>
+    <td>Anurag</td>
+    <td><img src="pending.gif" width="40%"></img></td>
+  </tr>
+  <tr>
+    <td>8318348999</td>
+    <td>Anu</td>
+    <td><img src="rejected.gif" width="40%"></img></td>
+  </tr>
+  <tr>
+    <td>8299872018</td>
+    <td>Suraj Shukla</td>
+    <td><img src="approved.gif" width="40%"></img></td>
+  </tr>
+  <tr>
+    <td>9450187571</td>
+    <td>Shah Alam</td>
+    <td><img src="pending.gif" width="40%"></img></td>
+  </tr>
+</table>
